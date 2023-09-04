@@ -49,7 +49,8 @@ body {
 }
 
 .content {
-  width: 610px;
+  width: 100%;
+  max-width: 610px; /* falar sobre essa alteração */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -117,6 +118,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
+  width: 100%;
+  align-items: center;
 }
 
 .social-button {
@@ -125,8 +128,9 @@ body {
   justify-content: center;
   gap: 16px;
   color: #ffffff;
-  width: 120px;
-  padding: 20px 78px;
+  width: 100%;
+  max-width: 250px;
+  padding: 16px 0;
   border: 2px solid #21D87D;
   border-radius: 16px;
   text-align: center;
@@ -177,4 +181,44 @@ body {
   font-weight: 600;
   line-height: normal;
   padding: 24px;
+}
+
+@media (max-width: 1200px) {
+  .menu {
+    gap: 0;
+    justify-content: space-around;
+  }
+  .presentation {
+    flex-direction: column-reverse;
+    /* footer tem 63.2px e header 61.6px. heights feios, ajustar! */
+    /* mas a soma deles eh  */
+    max-height: calc(100vh - 125.6px);
+    overflow-y: auto;
+  }
+
+  .image-box {
+    width: 300px;
+    height: 300px;
+  }
+
+  .image {
+    width: 300px;
+    height: auto;
+  }
+  .social {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    width: 100%;
+  }
+  .social-button {
+    width: 100%;
+    max-width: calc(100% - 20px);
+  }
+
+  .presentation {
+    margin: 0;
+    padding: 0 4px;
+  }
+ 
 }
