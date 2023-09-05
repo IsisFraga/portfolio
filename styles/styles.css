@@ -52,6 +52,7 @@ body {
   font-weight: 600;
   line-height: normal;
   text-decoration: none;
+  display: flex;
 
   &:focus {
     color: var(--distak-color);
@@ -217,20 +218,28 @@ body {
   }
 
   .header {
-    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
   }
 
   .menu {
-    gap: 0;
+    gap: 5px;
     width: 100%;
     justify-content: space-between;
   }
 
   .items {
-    display: flex;
     align-items: center;
+    width: fit-content;
+    text-align: center;
+  }
+
+  .items.hidden-desk {
+    display: flex;
     flex-wrap: wrap;
+    align-items: center;
   }
   .presentation {
     flex-direction: column-reverse;
