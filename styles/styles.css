@@ -1,5 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Montserrat:wght@600&family=Roboto:ital,wght@0,100;0,400;0,900;1,900&display=swap');
 
+:root {
+  --primary-color: #000000;
+  --secondary-color: rgba(255, 255, 255, 0.10);
+  --distak-color: #21D87D;
+  --primary-text-color: #F2F2F2;
+  --color-hover: #040E1D;
+
+  --primary-font: 'Roboto', sans-serif;
+  --secondary-font: 'Montserrat', sans-serif;
+
+  /* exemplos de outras possíveis variáveis */
+  /* --font-weight-normal: 400; */
+  /* --font-weight-bold: 600; */
+
+  /* --font-size-regular: 24px;  */
+  /* --font-size-small: 16px; */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,15 +27,15 @@
 body {
   height: 100vh;
   box-sizing: border-box;
-  background-color: #000000;
-  color: #F6F6F6;
-  font-family: 'Roboto', sans-serif;
+  background-color: var(--primary-color);
+  color: var(--primary-text-color);
+  font-family: var(--primary-font);
   display: flex;
   flex-direction: column;
 }
 
 .header {
-  background: rgba(255, 255, 255, 0.10);
+  background: var(--secondary-color);
   padding: 16px 5%;
 }
 
@@ -27,16 +45,16 @@ body {
 }
 
 .items {
-  color: #F2F2F2;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 24px;
+  color: var(--primary-text-color);
+  font-family: var(--secondary-font);
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   text-decoration: none;
 
   &:focus {
-    color: #21D87D;
+    color: var(--distak-color);
   }
 }
 
@@ -50,7 +68,7 @@ body {
 
 .content {
   width: 100%;
-  max-width: 610px; /* falar sobre essa alteração */
+  max-width: 610px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -59,19 +77,19 @@ body {
 
 .title {
   font-family: 'Inter', sans-serif;
-  font-size: 36px;
+  font-size: 2.25rem;
   font-style: normal;
   font-weight: 400;
   line-height: 56px;
 }
 
 .distak-title {
-  color: #21D87D;
+  color: var(--distak-color);
   font-weight: 400;
 }
 
 .main-text {
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 36px;
@@ -119,7 +137,6 @@ body {
   flex-direction: column;
   gap: 32px;
   width: 100%;
-  align-items: center;
 }
 
 .social-button {
@@ -127,21 +144,22 @@ body {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  color: #ffffff;
+  color: var(--primary-text-color);
   width: 100%;
   max-width: 250px;
-  padding: 16px 0;
-  border: 2px solid #21D87D;
+  padding: 20px 0;
+  border: 2px solid;
+  border-color: var(--distak-color);
   border-radius: 16px;
   text-align: center;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 400;
   line-height: 36px;
   text-decoration:none;
 
   &:hover {
-    background-color: #040E1D;
+    background-color: var(--color-hover);
   }
 }
 
@@ -168,32 +186,63 @@ body {
 }
 
 .footer {
-  background: rgba(255, 255, 255, 0.10);
+  background: var(--secondary-color);
   display: flex;
   justify-content: center;
 }
 
 .footer-text {
-  color: #F2F2F2;
+  color: var(--primary-text-color);
   font-family: Montserrat;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   padding: 24px;
 }
 
+.hidden-desk {
+  display: none;
+}
+.hidden-mobile {
+  display: flex;
+}
+
 @media (max-width: 1200px) {
+  .hidden-desk {
+    display: flex;
+  }
+  .hidden-mobile {
+    display: none;
+  }
+
+  .header {
+    min-height: 80px;
+    width: 100%;
+  }
+
   .menu {
     gap: 0;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .items {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
   }
   .presentation {
     flex-direction: column-reverse;
-    /* footer tem 63.2px e header 61.6px. heights feios, ajustar! */
-    /* mas a soma deles eh  */
-    max-height: calc(100vh - 125.6px);
-    overflow-y: auto;
+  }
+
+  .social {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .social-button {
+    max-width: 100%;
   }
 
   .image-box {
@@ -203,22 +252,6 @@ body {
 
   .image {
     width: 300px;
-    height: auto;
+    bottom: 65px;
   }
-  .social {
-    flex-direction: column;
-    align-items: center;
-    gap: 32px;
-    width: 100%;
-  }
-  .social-button {
-    width: 100%;
-    max-width: calc(100% - 20px);
-  }
-
-  .presentation {
-    margin: 0;
-    padding: 0 4px;
-  }
- 
 }
