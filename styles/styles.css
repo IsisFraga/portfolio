@@ -60,6 +60,7 @@ body {
 }
 
 .presentation {
+  width: 100%;
   flex:1;
   margin: 5%;
   display: flex;
